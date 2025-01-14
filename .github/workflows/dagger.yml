@@ -2,7 +2,7 @@ name: dagger
 on:
   push:
     branches:
-      feat/dagger
+      main
 
 jobs:
   hello:
