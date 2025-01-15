@@ -8,8 +8,9 @@ jobs:
   hello:
     name: hello
     runs-on: ubuntu-latest
-    env:
-      DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Call Dagger Function
         uses: dagger/dagger-for-github@v7
@@ -22,4 +23,6 @@ jobs:
           # a repository secret named DAGGER_CLOUD_TOKEN
           # set via the GitHub UI/CLI
           cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+        env:
+          DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
         
